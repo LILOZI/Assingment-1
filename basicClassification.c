@@ -5,6 +5,10 @@
 // false = 0, true = 1
 int isPrime(int x)
 {
+    if( x == 1)
+    {
+        return 1;
+    }
     if (x % 2 == 0)
     { // This is an even number so it's not prime
         return 0;
@@ -28,15 +32,15 @@ int isPrime(int x)
 
 int isStrong (int num)
 {
-int sum = 0; // keeping the sum of the digits
-int temp = num;
-while (temp > 0)
-{
-    int dig = temp % 10; // getting the last digit number
-    sum += factorial(dig);
-    temp /= 10; // Dividing it by 10 each iteration
-}
-return ((sum == num) ? 1:0);
+    int sum = 0; // keeping the sum of the digits
+    int temp = num;
+    while (temp > 0)
+    {
+        int dig = temp % 10; // getting the last digit number
+        sum += factorial(dig);
+        temp /= 10; // Dividing it by 10 each iteration
+    }
+    return ((sum == num) ? 1:0);
 }
 
 int factorial(int n)
