@@ -19,10 +19,10 @@ recursives: $(OBJECTFILESREC)
 	$(AR) $(STAT) libclassrec.a $(OBJECTFILESREC) 
 
 recursived: $(OBJECTFILESREC)
-	$(CC) $(CFLAG) $(DYN) libclassrec.so $(OBJECTFILESREC) 
+	$(CC) $(CFLAG) -fPIC $(DYN) libclassrec.so $(OBJECTFILESREC) 
 
 loopd: $(OBJECTFILESLOOPS)
-	$(CC) $(CFLAG) $(DYN) libclassloops.so $(OBJECTFILESLOOPS) 
+	$(CC) $(CFLAG) -fPIC $(DYN) libclassloops.so $(OBJECTFILESLOOPS) 
 
 mains: main.o libclassrec.a
 	$(CC) $(CFLAG) $< ./libclassrec.a -o $@
@@ -43,7 +43,7 @@ advancedClassificationRecursion.o: advancedClassificationRecursion.c NumClass.h
 advancedClassificationLoop.c: advancedClassificationLoop.c NumClass.h
 	$(CC) -c advancedClassificationLoop.c
 
-.PHONY: make clean all
+.PHONY: clean all
 
 clean:
 	rm -f *.o *.a *.so mains maindloop maindrec

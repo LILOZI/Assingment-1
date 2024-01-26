@@ -11,6 +11,10 @@ int isPrime(int x)
     }
     if (x % 2 == 0)
     { // This is an even number so it's not prime
+        if(x == 2)
+        {
+            return 1;
+        }
         return 0;
     }
     
